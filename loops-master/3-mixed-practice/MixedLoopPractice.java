@@ -243,33 +243,37 @@
     
     //17 uses the appropriate type of loop to return true if a number n contains the digit d and false otherwise.
     public static boolean hasDigit(int n, int d) {
-       String strN = n + "";
-       String strD = d + "";
-       for (int i = 0; i < strN.length(); i++) {
-           if (strN.substring(i, i+1).equals(strD)) {
-               return true;
-           }
-       }
-       return false;
-       /*
-       for (int i = 0; i < (n + "").length(); i++) {
+        for (int i = 0; i < (n + "").length(); i++) {
             if (((n + "").substring(i,i+1)).equals(d+"")) {
                 return true;
             }
-           
-        }
+         }
         return false;
-        */
     }            
  
     //18 returns true if a number n has more even digits than odd digits and false otherwise.
-    public static boolean moreEvens() {
+    public static boolean moreEvens(int n) {
+        String strN = n + "";
+        int evens = 0;
+        int odds = 0;
+        int digit;
+        for (int i = 0; i < strN.length(); i++) {
+            digit = Integer.parseInt(strN.substring(i, i+1));
+            if (digit % 2 == 0) {
+                evens ++;
+            }
+            else {
+                odds++;
+            }
+        }
+        if (evens > odds) {
+            return true;
+        }
         return false;
     }            
                        
     public static void main(String[] args)
     {
-        /*
         oneToThirtyF();
         oneToThirtyW();
         twentyToZeroF();
@@ -285,10 +289,9 @@
         divBy5or7Sum();
         bizzBuzz(20);
         System.out.println(sumDigits(122));
-        System.out.println(countEvens(2212));
-        System.out.println(hasDigit(3, 432));
-        */
-        moreEvens();
+        System.out.println(countEvens(2212));        
+        System.out.println(hasDigit(432, 3));
+        System.out.println(moreEvens(223));
     }
  }
  
